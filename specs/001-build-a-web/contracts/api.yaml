@@ -1,0 +1,38 @@
+openapi: 3.0.0
+info:
+  title: History of Vibe Coding API
+  version: 1.0.0
+paths:
+  /api/decades:
+    get:
+      summary: Get all timeline data
+      responses:
+        '200':
+          description: A JSON object containing all the timeline data
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/Decade'
+components:
+  schemas:
+    Decade:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        milestoneModels:
+          type: string
+        codingFocus:
+          type: string
+        interactiveToolShowcase:
+          type: string
+      required:
+        - id
+        - title
+        - milestoneModels
+        - codingFocus
+        - interactiveToolShowcase
