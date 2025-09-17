@@ -1,7 +1,24 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from ..models.decade import Decade
 
 app = FastAPI()
+
+print("Before adding middleware")
+
+origins = [
+    "http://localhost:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+print("After adding middleware")
 
 decades_data = {
     "1950s": {
