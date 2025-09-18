@@ -7,3 +7,7 @@ const apiClient = axios.create({
 export const getDecades = () => {
   return apiClient.get('/api/decades');
 };
+
+export const predictDigit = (imageData) => {
+  return apiClient.post('/predict', { image_data: imageData });
+};

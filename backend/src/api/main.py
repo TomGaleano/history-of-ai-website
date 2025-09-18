@@ -1,6 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from ..models.decade import Decade
+import joblib
+import numpy as np
+import os
+from pydantic import BaseModel
+import base64
+import io
+from PIL import Image
 
 app = FastAPI()
 
@@ -11,6 +18,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Load the trained model
+model = joblib.load('src/models/mnist_model.joblib')
+counter = 0
+
+class DigitDrawing(BaseModel):
+    image_data: str
 
 decades_data = {
     "1950s": {
@@ -67,3 +81,19 @@ decades_data = {
 @app.get("/api/decades", response_model=dict[str, Decade])
 async def get_decades():
     return decades_data
+
+@app.post("/predict")
+async def predict(drawing: DigitDrawing):
+    # Preprocess the image data
+    image_data = base64.b64decode(drawing.image_data.split(',')[1])
+    image = Image.open(io.BytesIO(image_data)).convert('L')
+    image = image.resize((28, 28))
+    image = np.array(image).reshape(1, 784)
+    image = np.abs(image / 255.0 - 1)
+
+
+    # Make a prediction
+    prediction = model.predict(image)
+    # prediction_proba = model.predict_proba(image)
+
+    return {"digit": int(prediction[0])}
