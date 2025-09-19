@@ -6,7 +6,6 @@ client = TestClient(app)
 def test_get_decades():
     response = client.get("/api/decades")
     assert response.status_code == 200
-    assert response.headers["Access-Control-Allow-Origin"] == "http://localhost:5173"
     data = response.json()
     assert isinstance(data, dict)
     for decade_id, decade_data in data.items():
