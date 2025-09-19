@@ -11,3 +11,7 @@ export const getDecades = () => {
 export const predictDigit = (imageData) => {
   return apiClient.post('/predict', { image_data: imageData });
 };
+
+export const askEliza = (message) => {
+  return apiClient.post('/api/eliza/chat', { message });
+};

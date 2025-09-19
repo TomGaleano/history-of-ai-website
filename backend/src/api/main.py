@@ -8,6 +8,8 @@ from pydantic import BaseModel
 import base64
 import io
 from PIL import Image
+from ..models.chat import ChatRequest
+from ..services.eliza_service import get_eliza_response
 
 app = FastAPI()
 
@@ -97,3 +99,9 @@ async def predict(drawing: DigitDrawing):
     # prediction_proba = model.predict_proba(image)
 
     return {"digit": int(prediction[0])}
+
+@app.post("/api/eliza/chat")
+async def eliza_chat(chat_request: ChatRequest):
+    reply = get_eliza_response(chat_request.message)
+    return {"reply": reply}
+

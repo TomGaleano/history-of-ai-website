@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  title: ELIZA Chatbot API
+  version: 1.0.0
+paths:
+  /api/eliza/chat:
+    post:
+      summary: Get a response from the ELIZA chatbot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: "Hello, I'm feeling down today."
+      responses:
+        '200':
+          description: A successful response from ELIZA
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reply:
+                    type: string
+                    example: "Tell me more about that."

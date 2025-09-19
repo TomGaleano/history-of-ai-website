@@ -1,5 +1,6 @@
 import React from 'react';
 import DigitDetector from './DigitDetector';
+import ElizaChatbot from './ElizaChatbot';
 
 const DecadeView = ({ decade }) => {
   if (!decade) {
@@ -14,7 +15,13 @@ const DecadeView = ({ decade }) => {
       <h3>Coding Focus</h3>
       <p>{decade.codingFocus}</p>
       <h3>Interactive Tool Showcase</h3>
-      {decade.id === '1950s' ? <DigitDetector /> : <p>{decade.interactiveToolShowcase}</p>}
+      {decade.id === '1950s' ? (
+        <DigitDetector />
+      ) : decade.id === '1960s' ? (
+        <ElizaChatbot />
+      ) : (
+        <p>{decade.interactiveToolShowcase}</p>
+      )}
     </div>
   );
 };
