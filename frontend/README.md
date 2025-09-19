@@ -1,12 +1,48 @@
-# React + Vite
+# Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This directory contains the frontend of the "History of Vibe Coding" application. It is a single-page application built with [React](https://reactjs.org/) and [Vite](https://vitejs.dev/).
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The frontend provides the user interface for the interactive timeline of AI history. It communicates with the backend to fetch data for each decade and to get predictions from the digit recognizer model.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To run the frontend, you need to have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
+
+### Installation
+
+1.  Navigate to the `frontend` directory:
+    ```bash
+    cd frontend
+    ```
+2.  Install the dependencies:
+    ```bash
+    npm install
+    ```
+
+### Running the Development Server
+
+To start the development server, run the following command:
+
+```bash
+npm run dev
+```
+
+This will start the frontend application, and you can view it in your browser at the address provided (usually `http://localhost:5173`).
+
+### Running Tests
+
+To run the tests for the frontend, use the following command:
+
+```bash
+npm test
+```
+
+### Linting
+
+To check the code for any linting errors, run:
+
+```bash
+npm run lint
+```
