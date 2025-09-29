@@ -39,7 +39,7 @@ const DigitDetector = () => {
     const uri = stageRef.current.toDataURL();
     try {
       const response = await predictDigit(uri);
-      setPrediction(response.data.digit);
+      setPrediction(response.digit);
     } catch (error) {
       console.error("Error predicting digit:", error);
     }

@@ -9,4 +9,5 @@ dependencies = [
     "joblib>=1.5.2",
     "pydantic>=2.11.9",
     "uvicorn>=0.35.0",
+    "pytholog",
 ]

@@ -14,7 +14,7 @@ const ElizaChatbot = () => {
 
     try {
       const response = await askEliza(message);
-      const elizaMessage = { author: 'ELIZA', text: response.data.reply };
+      const elizaMessage = { author: 'ELIZA', text: response.reply };
       setConversation(prev => [...prev, elizaMessage]);
     } catch (error) {
       console.error('Error communicating with ELIZA:', error);

@@ -10,7 +10,7 @@ import io
 from PIL import Image
 from ..models.chat import ChatRequest
 from ..services.eliza_service import get_eliza_response
-from ..services.prolog_service import get_prolog_service, prolog_service
+from ..services.prolog_service import get_prolog_service, PrologService
 
 app = FastAPI()
 
@@ -110,6 +110,6 @@ async def eliza_chat(chat_request: ChatRequest):
     return {"reply": reply}
 
 @app.post("/api/prolog/query")
-async def prolog_query(query: PrologQuery):
+async def prolog_query(query: PrologQuery, prolog_service: PrologService = Depends(get_prolog_service)):
     result = prolog_service.query(query.query)
-    return result
+    return {"result": result}

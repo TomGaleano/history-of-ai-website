@@ -1,0 +1,30 @@
+
+openapi: 3.0.0
+info:
+  title: The Archivist's Key API
+  version: 1.0.0
+paths:
+  /api/prolog/query:
+    post:
+      summary: Execute a Prolog query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  example: "look(office)."
+      responses:
+        '200':
+          description: The result of the Prolog query
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: "true."

@@ -12,3 +12,4 @@ src/backend.egg-info/top_level.txt
 src/models/chat.py
 src/models/decade.py
 src/services/eliza_service.py
+src/services/prolog_service.py

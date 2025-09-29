@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     getDecades().then((response) => {
-      setDecades(response.data);
+      setDecades(response);
     });
   }, []);
 

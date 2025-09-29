@@ -1,6 +1,7 @@
 import React from 'react';
 import DigitDetector from './DigitDetector';
 import ElizaChatbot from './ElizaChatbot';
+import PrologGame from './PrologGame';
 
 const DecadeView = ({ decade }) => {
   if (!decade) {
@@ -19,6 +20,8 @@ const DecadeView = ({ decade }) => {
         <DigitDetector />
       ) : decade.id === '1960s' ? (
         <ElizaChatbot />
+      ) : decade.id === '1970s' ? (
+        <PrologGame />
       ) : (
         <p>{decade.interactiveToolShowcase}</p>
       )}
